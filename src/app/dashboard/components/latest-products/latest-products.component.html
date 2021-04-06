@@ -1,0 +1,50 @@
+<mat-card class="h-full">
+	<mat-card-header>
+		<mat-card-title>
+			Latest Products
+		</mat-card-title>
+	</mat-card-header>
+	<mat-divider></mat-divider>
+	<mat-list>
+		<mat-list-item *ngFor="let product of products">
+			<mat-icon mat-list-icon>
+				<img
+					[alt]="product.name"
+					[src]="product.image"
+					class="image"
+				/>
+			</mat-icon>
+			<div
+				class="mk-text-primary"
+				mat-line
+			>
+				{{product.name}}
+			</div>
+			<div
+				class="text-secondary"
+				mat-line
+			>
+				<!-- TODO: Finish -->
+				Updated
+				{{formatDistanceToNow(product.updatedAt.getTime())}}
+			</div>
+			<button mat-icon-button>
+				<mat-icon>
+					more_vert
+				</mat-icon>
+			</button>
+			<mat-divider></mat-divider>
+		</mat-list-item>
+	</mat-list>
+	<div class="flex justify-end p-2">
+		<button
+			color="primary"
+			mat-button
+		>
+			View all
+			<mat-icon>
+				arrow_right
+			</mat-icon>
+		</button>
+	</div>
+</mat-card>

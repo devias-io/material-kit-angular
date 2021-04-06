@@ -1,0 +1,17 @@
+<mat-list-item class="item">
+	<button
+		[routerLinkActiveOptions]="{exact: true}"
+		[routerLink]="href"
+		class="w-full"
+		mat-button
+		routerLinkActive="mk-link-active"
+	>
+		<i-feather
+			*ngIf="icon"
+			[name]="icon"
+			class="mk-icon-small mr-1"
+		>
+		</i-feather>
+		<span>{{title}}</span>
+	</button>
+</mat-list-item>

@@ -1,0 +1,132 @@
+<form
+	(ngSubmit)="onSubmit()"
+	[formGroup]="formGroup"
+>
+	<mat-card>
+		<mat-card-header>
+			<mat-card-title>
+				Profile
+			</mat-card-title>
+			<mat-card-subtitle>
+				The information can be edited
+			</mat-card-subtitle>
+		</mat-card-header>
+		<mat-divider></mat-divider>
+		<mat-card-content>
+			<div class="grid grid-cols-12 gap-3">
+				<div class="col-span-12 md:col-span-6">
+					<mat-form-field
+						appearance="outline"
+						class="w-full"
+					>
+						<mat-label>
+							First Name
+						</mat-label>
+						<input
+							formControlName="firstName"
+							matInput
+							name="firstName"
+							required
+						/>
+						<mat-hint class="mt-1">
+							Please specify the first name
+						</mat-hint>
+					</mat-form-field>
+				</div>
+				<div class="col-span-12 md:col-span-6">
+					<mat-form-field
+						appearance="outline"
+						class="w-full"
+					>
+						<mat-label>
+							Last Name
+						</mat-label>
+						<input
+							formControlName="lastName"
+							matInput
+							name="lastName"
+							required
+						/>
+					</mat-form-field>
+				</div>
+				<div class="col-span-12 md:col-span-6">
+					<mat-form-field
+						appearance="outline"
+						class="w-full"
+					>
+						<mat-label>
+							Email Address
+						</mat-label>
+						<input
+							formControlName="email"
+							matInput
+							name="email"
+							required
+							type="email"
+						/>
+					</mat-form-field>
+				</div>
+				<div class="col-span-12 md:col-span-6">
+					<mat-form-field
+						appearance="outline"
+						class="w-full"
+					>
+						<mat-label>
+							Phone Number
+						</mat-label>
+						<input
+							formControlName="phone"
+							matInput
+							name="phone"
+						>
+					</mat-form-field>
+				</div>
+				<div class="col-span-12 md:col-span-6">
+					<mat-form-field
+						appearance="outline"
+						class="w-full"
+					>
+						<mat-label>
+							Country
+						</mat-label>
+						<input
+							formControlName="country"
+							matInput
+							name="country"
+						>
+					</mat-form-field>
+				</div>
+				<div class="col-span-12 md:col-span-6">
+					<mat-form-field
+						appearance="outline"
+						class="w-full"
+					>
+						<mat-label>
+							Select state
+						</mat-label>
+						<mat-select
+							formControlName="state"
+							required
+						>
+							<mat-option
+								*ngFor="let state of states"
+								[value]="state.value"
+							>
+								{{state.label}}
+							</mat-option>
+						</mat-select>
+					</mat-form-field>
+				</div>
+			</div>
+		</mat-card-content>
+		<mat-divider></mat-divider>
+		<div class="flex justify-end p-2">
+			<button
+				color="primary"
+				mat-flat-button
+			>
+				Save details
+			</button>
+		</div>
+	</mat-card>
+</form>

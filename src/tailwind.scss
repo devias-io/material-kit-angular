@@ -1,0 +1,15 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+* {
+	border-color: var(--mk-divider);
+}
+
+body {
+	font-family: var(--mk-font-family);
+}
+
+button:focus {
+	outline: none;
+}

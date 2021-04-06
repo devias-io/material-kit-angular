@@ -1,0 +1,11 @@
+// TODO: Check
+.image {
+	max-width: 100%;
+}
+
+::ng-deep {
+	.mat-list-icon {
+		height: 48px !important;
+		width: 48px !important;
+	}
+}

@@ -1,0 +1,32 @@
+<mat-toolbar color="primary">
+	<span class="hidden lg:inline mr-2">
+		<a routerLink="/">
+			<mk-logo class="h-5 w-5"></mk-logo>
+		</a>
+	</span>
+	<span class="inline lg:hidden">
+		<button
+			(click)="onToggleSidenav()"
+			mat-icon-button
+		>
+			<i-feather
+				class="mk-icon-small"
+				name="menu"
+			>
+			</i-feather>
+		</button>
+	</span>
+	<div class="flex-grow"></div>
+	<button mat-icon-button>
+		<mat-icon>
+			notifications_none
+		</mat-icon>
+	</button>
+	<span class="ml-1">
+		<button mat-icon-button>
+			<mat-icon>
+				input
+			</mat-icon>
+		</button>
+	</span>
+</mat-toolbar>

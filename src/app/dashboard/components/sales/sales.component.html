@@ -1,0 +1,35 @@
+<mat-card>
+	<mat-card-header class="flex justify-between items-center">
+		<mat-card-title>
+			Latest Sales
+		</mat-card-title>
+		<button
+			class="mk-button-small"
+			color="primary"
+			mat-button
+		>
+			Last 7 days
+			<mat-icon>
+				arrow_drop_down
+			</mat-icon>
+		</button>
+	</mat-card-header>
+	<mat-divider></mat-divider>
+	<mat-card-content>
+		<div class="chart-container">
+			<canvas id="sales-chart"></canvas>
+		</div>
+	</mat-card-content>
+	<mat-divider></mat-divider>
+	<div class="flex justify-end p-2">
+		<button
+			mat-button
+			color="primary"
+		>
+			Overview
+			<mat-icon color="primary">
+				arrow_right
+			</mat-icon>
+		</button>
+	</div>
+</mat-card>

@@ -1,0 +1,110 @@
+<div class="mk-bg-darker h-full flex flex-col justify-center">
+	<div class="max-w-screen-sm w-full mx-auto px-2 sm:px-3">
+		<form
+			#form="ngForm"
+			(ngSubmit)="onSubmit()"
+			[formGroup]="formGroup"
+		>
+			<div class="mb-3">
+				<h2 class="mat-display-3 mk-text-primary">
+					Sign in
+				</h2>
+				<p class="mat-body-1 mk-text-secondary">
+					Sign in on the internal platform
+				</p>
+			</div>
+			<div class="gap-3 grid grid-cols-1 md:grid-cols-2">
+				<button
+					(click)="onSubmit()"
+					class="mk-button-large w-full"
+					color="primary"
+					mat-flat-button
+					type="button"
+				>
+					<img
+						alt="Facebook"
+						class="inline-block mr-2"
+						src="../../assets/images/facebook.svg"
+					/>
+					Login with Facebook
+				</button>
+				<button
+					(click)="onSubmit()"
+					class="mk-button-large w-full"
+					mat-flat-button
+					type="button"
+				>
+					<img
+						alt="Google"
+						class="inline-block mr-2"
+						src="../../assets/images/google.svg"
+					/>
+					Login with Google
+				</button>
+			</div>
+			<p class="mat-body-2 mk-text-secondary text-center py-3">
+				or login with email address
+			</p>
+			<mat-form-field
+				class="w-full"
+				appearance="outline"
+			>
+				<mat-label>
+					Email Address
+				</mat-label>
+				<input
+					formControlName="email"
+					matInput
+					name="email"
+					type="email"
+				/>
+				<mat-error
+					*ngIf="(formGroup.get('email').touched || form.submitted)  && formGroup.get('email').errors"
+					class="mt-1"
+				>
+					{{formGroup.get('email').errors.required ? 'Email is required' : 'Must be a valid email'}}
+				</mat-error>
+			</mat-form-field>
+			<mat-form-field
+				class="w-full"
+				appearance="outline"
+			>
+				<mat-label>
+					Password
+				</mat-label>
+				<input
+					formControlName="password"
+					matInput
+					name="password"
+					type="password"
+				/>
+				<mat-error
+					*ngIf="(formGroup.get('password').touched || form.submitted) && formGroup.get('password').invalid"
+					class="mt-1"
+				>
+					Password is required
+				</mat-error>
+			</mat-form-field>
+			<div class="mt-2 mb-2">
+				<button
+					[disabled]="isSubmitting"
+					class="mk-button-large w-full"
+					color="primary"
+					mat-flat-button
+					type="submit"
+				>
+					Sign in now
+				</button>
+			</div>
+			<p class="mat-body-2 mk-text-secondary inline">
+				Don&apos;t have an account?
+			</p>
+			<a
+				class="mat-body-2 mk-primary"
+				routerLink="/register"
+			>
+				Sign up
+			</a>
+		</form>
+	</div>
+</div>

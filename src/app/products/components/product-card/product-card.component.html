@@ -1,0 +1,37 @@
+<mat-card class="h-full">
+	<mat-card-content>
+		<div class="flex justify-center">
+			<img
+				[alt]="product.title"
+				[src]="product.media"
+				class="h-5 w-5 rounded-full"
+			/>
+		</div>
+		<p class="mat-display-1 mk-text-primary text-center mt-3">
+			{{product.title}}
+		</p>
+		<p class="mat-body-2 mk-text-primary text-center mt-1">
+			{{product.description}}
+		</p>
+	</mat-card-content>
+	<div class="flex-grow"></div>
+	<mat-divider [inset]="true"></mat-divider>
+	<div class="flex flex-wrap justify-between p-1">
+		<span class="mk-text-secondary flex items-center p-1">
+			<mat-icon class="mr-1">
+				access_time
+			</mat-icon>
+			<span class="mat-body-1">
+				Updated 2hr ago
+			</span>
+		</span>
+		<span class="mk-text-secondary flex items-center p-1">
+			<mat-icon class="mr-1">
+				get_app
+			</mat-icon>
+			<span class="mat-body-1">
+				{{product.totalDownloads}} Downloads
+			</span>
+		</span>
+	</div>
+</mat-card>

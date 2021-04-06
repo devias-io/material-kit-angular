@@ -1,0 +1,390 @@
+// Import Angular Material theming to access its mixins
+@import "../node_modules/@angular/material/_theming.scss";
+
+:root {
+	--mk-font-weight-bold: 700;
+	--mk-font-weight-medium: 500;
+	--mk-font-weight-regular: 400;
+	--mk-spacing-unit: 8px;
+}
+
+// Typography config
+
+$font-family: 'Roboto, "Helvetica Neue", sans-serif';
+
+// We based our design system on the official Material IO documentation
+// and we have to adjust the typography to match Material IO structure.
+
+$headline1: mat-typography-level($font-size: 2.1875rem, $line-height: 1.167, $font-weight: 500, $letter-spacing: -0.015em);
+$headline2: mat-typography-level($font-size: 1.8125rem, $line-height: 1.2, $font-weight: 500, $letter-spacing: -0.015em);
+$headline3: mat-typography-level($font-size: 1.5rem, $line-height: 1.167, $font-weight: 500, $letter-spacing: -0.00375em);
+$headline4: mat-typography-level($font-size: 1.25rem, $line-height: 1.235, $font-weight: 500, $letter-spacing: -0.00375em);
+$headline5: mat-typography-level($font-size: 1rem, $line-height: 1.6, $font-weight: 500, $letter-spacing: -0.003125em);
+$headline6: mat-typography-level($font-size: 0.875rem, $line-height: 1.75, $font-weight: 500, $letter-spacing: -0.003125em);
+$subtitle1: mat-typography-level($font-size: 1rem, $line-height: 1.75, $font-weight: 400, $letter-spacing: 0.009375em);
+$subtitle2: mat-typography-level($font-size: 0.875rem, $line-height: 1.57, $font-weight: 500, $letter-spacing: 0.00714em);
+$mat-body-2: mat-typography-level($font-size: 1rem, $line-height: 1.5, $font-weight: 400, $letter-spacing: 0.00938em);
+$body2: mat-typography-level($font-size: 0.875rem, $line-height: 1.43, $font-weight: 400, $letter-spacing: 0.01071em);
+$caption: mat-typography-level($font-size: 0.75rem, $line-height: 1.66, $font-weight: 400, $letter-spacing: 0.03333em);
+$button: mat-typography-level($font-size: 0.875rem, $line-height: 1.75, $font-weight: 500, $letter-spacing: 0.02857em);
+$input: mat-typography-level($font-size: 1rem, $line-height: 1.125, $font-weight: 400);
+
+$typography-config: mat-typography-config(
+	$font-family: $font-family,
+	$display-4: $headline1,
+	$display-3: $headline2,
+	$display-2: $headline3,
+	$display-1: $headline4,
+	$headline: $headline5,
+	$title: $headline6,
+	$subheading-2: $subtitle1,
+	$subheading-1: $subtitle2,
+	$body-2: $mat-body-2,
+	$body-1: $body2,
+	$caption: $caption,
+	$button: $button,
+	$input: $input
+);
+
+@include mat-core($typography-config);
+
+// "overline" is missing from Angular Material so we do a quick fix here
+// until they implement the
+
+.mat-overline {
+	font-size: 0.75rem;
+	font-weight: var(--mk-font-weight-medium);
+	letter-spacing: 0.08333em;
+	line-height: 2.66;
+	text-transform: uppercase;
+}
+
+:root {
+	--mk-font-family: #{$font-family};
+}
+
+// Color palettes
+
+$dark-primary-text: #172b4d;
+$dark-secondary-text: #6b778c;
+$dark-disabled-text: rgba(black, 0.38);
+$dark-dividers: rgba(black, 0.12);
+$dark-focused: rgba(black, 0.12);
+
+$mk-indigo: (
+	50 : #ebecfa,
+	100 : #ccd1f2,
+	200 : #abb2e9,
+	300 : #8993e0,
+	400 : #6f7bd9,
+	500 : #5664d2,
+	600 : #4f5ccd,
+	700 : #4552c7,
+	800 : #3c48c1,
+	900 : #2b36b6,
+	A100 : #f7f8ff,
+	A200 : #c4c8ff,
+	A400 : #9199ff,
+	A700 : #7881ff,
+	contrast: (
+		50 : #000000,
+		100 : #000000,
+		200 : #000000,
+		300 : #000000,
+		400 : #000000,
+		500 : #ffffff,
+		600 : #ffffff,
+		700 : #ffffff,
+		800 : #ffffff,
+		900 : #ffffff,
+		A100 : #000000,
+		A200 : #000000,
+		A400 : #000000,
+		A700 : #000000,
+	)
+);
+
+$mk-primary: mat-palette($mk-indigo);
+
+$mk-accent: mat-palette($mk-indigo);
+
+$mk-red: mat-palette($mat-red);
+$mk-green: mat-palette($mat-green);
+$mk-orange: mat-palette($mat-orange);
+$mk-indigo: mat-palette($mat-indigo);
+
+// Background palette for light themes.
+$mat-light-theme-background: (
+	status-bar: map-get($mat-grey, 300),
+	app-bar: map-get($mat-grey, 100),
+	background: #f4f6f8,
+	hover: rgba(black, 0.04),
+	card: white,
+	dialog: white,
+	disabled-button: rgba(black, 0.12),
+	raised-button: white,
+	focused-button: $dark-focused,
+	selected-button: map-get($mat-grey, 300),
+	selected-disabled-button: map-get($mat-grey, 400),
+	disabled-button-toggle: map-get($mat-grey, 200),
+	unselected-chip: map-get($mat-grey, 300),
+	disabled-list-option: map-get($mat-grey, 200),
+	tooltip: map-get($mat-grey, 700),
+);
+
+// Foreground palette for light themes.
+$mat-light-theme-foreground: (
+	base: black,
+	divider: $dark-dividers,
+	dividers: $dark-dividers,
+	disabled: $dark-disabled-text,
+	disabled-button: rgba(black, 0.26),
+	disabled-text: $dark-disabled-text,
+	elevation: black,
+	hint-text: $dark-disabled-text,
+	secondary-text: $dark-secondary-text,
+	icon: rgba(black, 0.54),
+	icons: rgba(black, 0.54),
+	text: $dark-primary-text,
+	slider-min: rgba(black, 0.87),
+	slider-off: rgba(black, 0.26),
+	slider-off-active: rgba(black, 0.38),
+);
+
+// Themes
+
+$mk-theme: mat-light-theme((
+	color: (
+		primary: $mk-primary,
+		accent: $mk-accent
+	)
+));
+
+@include angular-material-theme($mk-theme);
+
+:root {
+	--mk-accent-darker: #{mat-color($mk-accent, 700)};
+	--mk-accent-lighter: #{mat-color($mk-accent, 300)};
+	--mk-accent: #{mat-color($mk-accent)};
+	--mk-background-paper: #ffffff;
+	--mk-background: #f4f6f8;
+	--mk-divider: #{$dark-dividers};
+	--mk-elevation: 0 0 0 1px rgba(63, 63, 68, 0.05), 0 1px 2px 0 rgba(63, 63, 68, 0.15);
+	--mk-green-darker: #{mat-color($mk-green, 900)};
+	--mk-green: #{mat-color($mk-green, 600)};
+	--mk-indigo: #{mat-color($mk-indigo, 600)};
+	--mk-orange: #{mat-color($mk-orange, 600)};
+	--mk-primary-darker: #{mat-color($mk-primary, 900)};
+	--mk-primary-lighter: #{mat-color($mk-primary, 400)};
+	--mk-primary: #{mat-color($mk-primary)};
+	--mk-red-darker: #{mat-color($mk-red, 900)};
+	--mk-red: #{mat-color($mk-red, 600)};
+	--mk-text-primary: #{$dark-primary-text};
+	--mk-text-secondary: #{$dark-secondary-text};
+}
+
+// Material Icons
+
+.material-icons {
+	font-family: "Material Icons", "Material Icons", sans-serif;
+	font-size: 24px;
+}
+
+// Specific component overrides, pieces that are not in line with the general theming
+
+// Material Typography
+
+// By default we do not use margins for text
+// and we set it depending on design
+
+.mat-display-4,
+.mat-display-3,
+.mat-display-2,
+.mat-display-1,
+.mat-headline,
+.mat-title,
+.mat-subheading-2,
+.mat-subheading-1 {
+	margin-bottom: 0;
+}
+
+// Material Button component
+
+.mat-button,
+.mat-raised-button,
+.mat-stroked-button,
+.mat-flat-button {
+	text-transform: uppercase;
+}
+
+// Material Card component
+
+// Angular Material does not match Material IO documentation
+// and we have to adapt the margins and paddings
+
+.mat-card:not([class*=mat-elevation-z]) {
+	box-shadow: var(--mk-elevation) !important;
+}
+
+.mat-card {
+	padding: 0 !important;
+}
+
+.mat-card-actions {
+	margin: 0 !important;
+	padding: var(--mk-spacing-unit) !important;
+}
+
+.mat-card-content {
+	margin: 0 !important;
+	//padding: calc(var(--mk-spacing-unit) * 2) calc(var(--mk-spacing-unit) * 2) calc(var(--mk-spacing-unit) * 3);
+	padding: calc(var(--mk-spacing-unit) * 2);
+}
+
+.mat-card-content:last-child {
+	padding-bottom: calc(var(--mk-spacing-unit) * 3);
+}
+
+.mat-card-header {
+	padding: calc(var(--mk-spacing-unit) * 2);
+}
+
+.mat-card-header-text {
+	margin: 0 !important;
+}
+
+.mat-card-header .mat-card-title {
+	font-size: mat-font-size($typography-config, headline);
+	margin: 0 !important;
+}
+
+.mat-card-header .mat-card-subtitle {
+	font-size: mat-font-size($typography-config, body-2);
+	margin: 0 !important;
+}
+
+// Material Checkbox component
+
+.mat-checkbox-inner-container {
+	height: 18px !important;
+	width: 18px !important;
+}
+
+// Material Form Field component
+
+// We need to remove padding and margin to match Material IO style
+// and reposition subscript block as relative instead of absolute
+
+.mat-form-field-appearance-outline .mat-form-field-wrapper {
+	margin: 0 !important;
+}
+
+.mat-form-field-wrapper {
+	padding-bottom: 0;
+}
+
+.mat-form-field-label {
+	color: var(--mk-text-secondary) !important;
+}
+
+.mat-form-field-subscript-wrapper {
+	position: relative !important;
+}
+
+// Material Table component
+
+th.mat-header-cell,
+td.mat-cell,
+td.mat-footer-cell {
+	padding: calc(var(--mk-spacing-unit) * 2) !important; // Match Material IO
+}
+
+.mat-header-cell {
+	color: var(--mk-text-primary) !important; // Match Material IO
+	font-size: mat-font-size($typography-config, body-1);
+	font-weight: var(--mk-font-weight-medium);
+}
+
+// Custom generic styling
+
+html {
+	-webkit-font-smoothing: antialiased;
+}
+
+html,
+body {
+	height: 100%;
+}
+
+// Custom colors
+
+.mk-primary {
+	color: var(--mk-primary);
+}
+
+.mk-accent {
+	color: var(--mk-accent);
+}
+
+.mk-green-darker {
+	color: var(--mk-green-darker);
+}
+
+.mk-red-darker {
+	color: var(--mk-red-darker);
+}
+
+.mk-bg-primary {
+	background-color: var(--mk-primary);
+}
+
+.mk-bg-accent {
+	background-color: var(--mk-accent);
+}
+
+.mk-bg-darker {
+	background-color: var(--mk-background);
+}
+
+.mk-text-primary {
+	color: var(--mk-text-primary);
+}
+
+.mk-text-secondary {
+	color: var(--mk-text-secondary);
+}
+
+// Custom utils
+
+// TODO: Check this
+.mk-button-large {
+	padding: 8px 22px !important;
+	font-size: 0.9375rem !important;
+	line-height: 1.75 !important;
+}
+
+// TODO: Check this
+.mk-button-small {
+	padding: 4px 5px !important;
+	font-size: 0.8125rem !important;
+	line-height: 1.75 !important;
+}
+
+.mk-icon-small {
+	font-size: 1.25rem !important;
+	height: 20px !important;
+	width: 20px !important;
+}
+
+.mk-gutter-bottom {
+	margin-bottom: 0.35em;
+}
+
+// Custom components
+
+.mk-label {
+	background-color: var(--mk-primary);
+	border-radius: 16px;
+	color: #fff;
+	padding: 4px 8px;
+}

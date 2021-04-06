@@ -1,0 +1,32 @@
+<mat-card>
+	<mat-card-content>
+		<div class="flex flex-col items-center">
+			<img
+				[alt]="user.name"
+				[src]="user.avatar"
+				class="avatar rounded-full"
+			/>
+			<h3 class="mat-display-2 mk-text-primary mk-gutter-bottom">
+				{{user.name}}
+			</h3>
+			<p class="mat-body-2 mk-text-secondary">
+				{{user.city}}
+				{{user.country}}
+			</p>
+			<p class="mat-body-2 mk-text-secondary">
+				{{date | date: "hh:mm a"}}
+				{{user.timezone}}
+			</p>
+		</div>
+	</mat-card-content>
+	<mat-divider></mat-divider>
+	<mat-card-actions>
+		<button
+			class="w-full"
+			color="primary"
+			mat-button
+		>
+			Upload picture
+		</button>
+	</mat-card-actions>
+</mat-card>

@@ -1,0 +1,24 @@
+:host ::ng-deep .mat-list-item {
+	height: auto;
+}
+
+:host ::ng-deep .mat-list-item-content {
+	padding: 0 !important;
+}
+
+:host ::ng-deep .mat-button {
+	color: var(--mk-text-secondary);
+	display: flex !important;
+	justify-content: flex-start !important;
+	padding: 10px 8px;
+	text-transform: none;
+}
+
+:host ::ng-deep .mat-button-wrapper {
+	line-height: 1.75;
+}
+
+:host ::ng-deep .mk-link-active {
+	color: var(--mk-primary);
+	font-weight: var(--mk-font-weight-medium) !important;
+}

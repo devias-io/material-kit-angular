@@ -1,0 +1,134 @@
+<div class="mt-3">
+	<mat-card>
+		<perfect-scrollbar>
+			<table
+				[dataSource]="dataSource"
+				class="w-full"
+				mat-table
+				matSort
+			>
+				<ng-container matColumnDef="select">
+					<th
+						*matHeaderCellDef
+						mat-header-cell
+					>
+						<mat-checkbox
+							(change)="$event ? onSelectAll() : null"
+							[checked]="selection.hasValue() && isAllSelected()"
+							[indeterminate]="selection.hasValue() && !isAllSelected()"
+							color="primary"
+						>
+						</mat-checkbox>
+					</th>
+					<td
+						*matCellDef="let row"
+						mat-cell
+					>
+						<mat-checkbox
+							(change)="$event ? selection.toggle(row) : null"
+							(click)="$event.stopPropagation()"
+							[checked]="selection.isSelected(row)"
+							color="primary"
+						>
+						</mat-checkbox>
+					</td>
+				</ng-container>
+				<ng-container matColumnDef="name">
+					<th
+						*matHeaderCellDef
+						mat-header-cell
+					>
+						Name
+					</th>
+					<td
+						*matCellDef="let customer"
+						mat-cell
+					>
+						<div class="flex items-center">
+							<img
+								[alt]="customer.name"
+								[src]="customer.avatar"
+								class="h-5 w-5 rounded-full mr-2"
+							/>
+							<span>
+								{{customer.name}}
+							</span>
+						</div>
+					</td>
+				</ng-container>
+				<ng-container matColumnDef="email">
+					<th
+						*matHeaderCellDef
+						mat-header-cell
+					>
+						Email
+					</th>
+					<td
+						*matCellDef="let customer"
+						mat-cell
+					>
+						{{customer.email}}
+					</td>
+				</ng-container>
+				<ng-container matColumnDef="location">
+					<th
+						*matHeaderCellDef
+						mat-header-cell
+					>
+						Location
+					</th>
+					<td
+						*matCellDef="let customer"
+						mat-cell
+					>
+						{{customer.address.city}}, {{customer.address.state}}, {{customer.address.country}}
+					</td>
+				</ng-container>
+				<ng-container matColumnDef="phone">
+					<th
+						*matHeaderCellDef
+						mat-header-cell
+					>
+						Phone
+					</th>
+					<td
+						*matCellDef="let customer"
+						mat-cell
+					>
+						{{customer.phone}}
+					</td>
+				</ng-container>
+				<ng-container matColumnDef="registrationDate">
+					<th
+						*matHeaderCellDef
+						mat-header-cell
+					>
+						Registration date
+					</th>
+					<td
+						*matCellDef="let customer"
+						mat-cell
+					>
+						{{customer.createdAt | date: 'dd/MM/yyyy'}}
+					</td>
+				</ng-container>
+				<tr
+					*matHeaderRowDef="displayedColumns"
+					mat-header-row
+				>
+				</tr>
+				<tr
+					*matRowDef="let customer; columns: displayedColumns"
+					[class.mk-selected]="isSelected(customer.id)"
+					mat-row
+				>
+				</tr>
+			</table>
+		</perfect-scrollbar>
+		<mat-paginator
+			[pageSizeOptions]="[5, 10, 20]"
+			[pageSize]="10"
+		>
+		</mat-paginator>
+	</mat-card>
+</div>

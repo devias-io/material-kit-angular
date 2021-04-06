@@ -1,0 +1,104 @@
+<mat-card class="h-full">
+	<mat-card-header>
+		<mat-card-title>
+			Latest Orders
+		</mat-card-title>
+	</mat-card-header>
+	<mat-divider [inset]="true"></mat-divider>
+	<div>
+		<perfect-scrollbar>
+			<table
+				class="mat-elevation-z0 w-full"
+				mat-table [dataSource]="dataSource"
+				matSort
+				matSortActive="date"
+				matSortDirection="desc"
+				matSortDisableClear
+			>
+				<ng-container matColumnDef="ref">
+					<th
+						*matHeaderCellDef
+						class="mk-text-primary"
+						mat-header-cell
+					>
+						Order Ref
+					</th>
+					<td
+						*matCellDef="let order"
+						mat-cell
+					>
+						{{order.ref}}
+					</td>
+				</ng-container>
+				<ng-container matColumnDef="customer">
+					<th
+						*matHeaderCellDef
+						mat-header-cell
+					>
+						Customer
+					</th>
+					<td
+						*matCellDef="let order"
+						mat-cell
+					>
+						{{order.customer.name}}
+					</td>
+				</ng-container>
+				<ng-container matColumnDef="date">
+					<th
+						*matHeaderCellDef
+						disableClear
+						mat-header-cell
+						mat-sort-header
+					>
+						<div matTooltip="Sort">
+							Date
+						</div>
+					</th>
+					<td
+						*matCellDef="let order"
+						mat-cell
+					>
+						{{order.createdAt | date: 'dd/MM/yyyy'}}
+					</td>
+				</ng-container>
+				<ng-container matColumnDef="status">
+					<th
+						*matHeaderCellDef
+						mat-header-cell
+					>
+						Status
+					</th>
+					<td
+						*matCellDef="let order"
+						mat-cell
+					>
+					<span class="mk-label">
+						{{order.status}}
+					</span>
+				</ng-container>
+				<tr
+					*matHeaderRowDef="displayedColumns"
+					mat-header-row
+				>
+				</tr>
+				<tr
+					*matRowDef="let row; columns: displayedColumns;"
+					mat-row
+				>
+				</tr>
+			</table>
+		</perfect-scrollbar>
+	</div>
+	<div class="flex justify-end p-2">
+		<button
+			color="primary"
+			mat-button
+		>
+			View all
+			<mat-icon>
+				arrow_right
+			</mat-icon>
+		</button>
+	</div>
+</mat-card>

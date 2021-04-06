@@ -1,0 +1,132 @@
+<div class="mk-bg-darker h-full flex flex-col justify-center">
+	<div class="max-w-screen-sm w-full mx-auto px-2 sm:px-3">
+		<form
+			#form="ngForm"
+			(ngSubmit)="onSubmit()"
+			[formGroup]="formGroup"
+		>
+			<div class="mb-5">
+				<h2 class="mat-display-3 mk-text-primary">
+					Create new account
+				</h2>
+				<p class="mat-body-1 mk-text-secondary">
+					Use your email to create new account
+				</p>
+			</div>
+			<mat-form-field
+				appearance="outline"
+				class="w-full"
+			>
+				<mat-label>
+					First name
+				</mat-label>
+				<input
+					formControlName="firstName"
+					matInput
+					name="email"
+				/>
+				<mat-error
+					*ngIf="(formGroup.get('firstName').touched || form.submitted)  && formGroup.get('firstName').invalid"
+					class="mt-1"
+				>
+					First name required
+				</mat-error>
+			</mat-form-field>
+			<mat-form-field
+				class="w-full"
+				appearance="outline"
+			>
+				<mat-label>
+					Last name
+				</mat-label>
+				<input
+					formControlName="lastName"
+					matInput
+					name="lastName"
+				/>
+				<mat-error
+					*ngIf="(formGroup.get('lastName').touched || form.submitted)  && formGroup.get('lastName').invalid"
+					class="mt-1"
+				>
+					Last name required
+				</mat-error>
+			</mat-form-field>
+			<mat-form-field
+				class="w-full"
+				appearance="outline"
+			>
+				<mat-label>
+					Email address
+				</mat-label>
+				<input
+					formControlName="email"
+					matInput
+					name="email"
+					type="email"
+				/>
+				<mat-error
+					*ngIf="(formGroup.get('email').touched || form.submitted) && formGroup.get('email').errors"
+					class="mt-1"
+				>
+					{{formGroup.get('email').errors.required ? 'Email is required' : 'Must be a valid email'}}
+				</mat-error>
+			</mat-form-field>
+			<mat-form-field
+				class="w-full"
+				appearance="outline"
+			>
+				<mat-label>
+					Password
+				</mat-label>
+				<input
+					formControlName="password"
+					matInput
+					name="password"
+				/>
+				<mat-error
+					*ngIf="(formGroup.get('password').touched || form.submitted) && formGroup.get('password').invalid"
+					class="mt-1"
+				>
+					Password required
+				</mat-error>
+			</mat-form-field>
+			<div class="flex mt-1">
+				<mat-checkbox
+					class="mr-2"
+					color="primary"
+					formControlName="policy"
+				>
+					<p class="mat-body-2 mk-text-secondary">
+						I have read the
+						<a class="mk-primary underline">Terms and Conditions</a>
+					</p>
+				</mat-checkbox>
+			</div>
+			<mat-error
+				*ngIf="(formGroup.get('policy').touched || form.submitted)  && formGroup.get('policy').errors"
+				class="mt-1"
+			>
+				This field must be checked
+			</mat-error>
+			<div class="mt-3 mb-2">
+				<button
+					class="mk-button-large w-full"
+					color="primary"
+					mat-flat-button
+					type="submit"
+				>
+					Register
+				</button>
+			</div>
+			<p class="mat-body-2 mk-text-secondary inline">
+				Have an account?
+			</p>
+			<a 
+				class="mat-body-2 mk-primary"
+				routerLink="/login"
+			>
+				Sign in
+			</a>
+		</form>
+	</div>
+</div>

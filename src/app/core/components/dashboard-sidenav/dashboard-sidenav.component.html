@@ -1,0 +1,46 @@
+<div class="flex flex-col h-full">
+	<div class="flex flex-col items-center p-2">
+		<a routerLink="/app/account">
+			<img
+				[alt]="user.name"
+				[src]="user.avatar"
+				class="w-8 h-8 rounded-full"
+			/>
+		</a>
+		<h5 class="mat-headline mk-text-primary">
+			{{user.name}}
+		</h5>
+		<p class="mat-body-1 mk-text-secondary">
+			{{user.jobTitle}}
+		</p>
+	</div>
+	<mat-divider></mat-divider>
+	<div class="p-2">
+		<mat-list>
+			<mk-nav-item
+				*ngFor="let item of items"
+				[href]="item.href"
+				[icon]="item.icon"
+				[title]="item.title"
+			>
+			</mk-nav-item>
+		</mat-list>
+	</div>
+	<div class="flex-grow"></div>
+	<div class="mk-bg-darker m-2 p-2">
+		<h4 class="mat-display-1 mk-text-primary mk-gutter-bottom text-center">
+			Need more?
+		</h4>
+		<p class="mat-body-1 mk-text-primary text-center">
+			Upgrade to PRO version and access 20 more screens
+		</p>
+		<div class="flex justify-center mt-2">
+			<button
+				color="primary"
+				mat-flat-button
+			>
+				See PRO version
+			</button>
+		</div>
+	</div>
+</div>

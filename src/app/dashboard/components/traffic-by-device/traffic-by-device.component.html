@@ -1,0 +1,32 @@
+<mat-card class="h-full">
+	<mat-card-header class="flex justify-between items-center">
+		<mat-card-title>
+			Traffic by Device
+		</mat-card-title>
+	</mat-card-header>
+	<mat-divider></mat-divider>
+	<mat-card-content>
+		<div class="chart-container">
+			<canvas id="traffic-chart"></canvas>
+		</div>
+		<div class="flex justify-center mt-2">
+			<div
+				*ngFor="let device of devices"
+				class="text-center p-1"
+			>
+				<mat-icon>
+					{{device.icon}}
+				</mat-icon>
+				<p class="mat-body-2 mk-text-primary">
+					{{device.title}}
+				</p>
+				<h2
+					[style.color]="device.color"
+					class="mat-display-3"
+				>
+					{{device.value}}%
+				</h2>
+			</div>
+		</div>
+	</mat-card-content>
+</mat-card>

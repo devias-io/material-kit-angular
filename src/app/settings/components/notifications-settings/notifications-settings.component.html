@@ -1,0 +1,101 @@
+<form (ngSubmit)="onSubmit()">
+	<mat-card>
+		<mat-card-header>
+			<mat-card-title>
+				Notifications
+			</mat-card-title>
+			<mat-card-subtitle>
+				Manage the notifications
+			</mat-card-subtitle>
+		</mat-card-header>
+		<mat-divider></mat-divider>
+		<mat-card-content>
+			<div class="grid grid-cols-12 gap-6">
+				<div class="col-span-12 md:col-span-4 sm:col-span-6 flex flex-col">
+					<h6 class="mat-title mk-text-primary mk-gutter-bottom">
+						Notifications
+					</h6>
+					<div class="py-1">
+						<mat-checkbox
+							[checked]="true"
+							color="primary"
+						>
+							<span class="mat-body-2 mk-text-primary">
+								Email
+							</span>
+						</mat-checkbox>
+					</div>
+					<div class="py-1">
+						<mat-checkbox
+							[checked]="true"
+							color="primary"
+						>
+							<span class="mat-body-2 mk-text-primary">
+								Push Notifications
+							</span>
+						</mat-checkbox>
+					</div>
+					<div class="py-1">
+						<mat-checkbox color="primary">
+							<span class="mat-body-2 mk-text-primary">
+								Text Messages
+							</span>
+						</mat-checkbox>
+					</div>
+					<div class="py-1">
+						<mat-checkbox
+							[checked]="true"
+							color="primary"
+						>
+							<span class="mat-body-2 mk-text-primary">
+								Phone calls
+							</span>
+						</mat-checkbox>
+					</div>
+				</div>
+				<div class="col-span-12 md:col-span-4 sm:col-span-6 flex flex-col">
+					<h6 class="mat-title mk-text-primary mk-gutter-bottom">
+						Messages
+					</h6>
+					<div class="py-1">
+						<mat-checkbox
+							[checked]="true"
+							color="primary"
+						>
+							<span class="mat-body-2 mk-text-primary">
+								Email
+							</span>
+						</mat-checkbox>
+					</div>
+					<div class="py-1">
+						<mat-checkbox color="primary">
+							<span class="mat-body-2 mk-text-primary">
+								Push Notifications
+							</span>
+						</mat-checkbox>
+					</div>
+					<div class="py-1">
+						<mat-checkbox
+							[checked]="true"
+							color="primary"
+						>
+							<span class="mat-body-2 mk-text-primary">
+								Phone calls
+							</span>
+						</mat-checkbox>
+					</div>
+				</div>
+			</div>
+		</mat-card-content>
+		<mat-divider></mat-divider>
+		<div class="flex justify-end p-2">
+			<button
+				color="primary"
+				mat-flat-button
+				type="submit"
+			>
+				Save
+			</button>
+		</div>
+	</mat-card>
+</form>

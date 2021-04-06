@@ -1,0 +1,15 @@
+<mk-dashboard-navbar (toggleSidenav)="onSidenavToggle()"></mk-dashboard-navbar>
+<mat-sidenav-container [hasBackdrop]="mode === 'over'">
+	<mat-sidenav
+		#sidenav
+		[autoFocus]="false"
+		[mode]="mode"
+		[opened]="defaultOpen"
+		position="start"
+	>
+		<mk-dashboard-sidenav></mk-dashboard-sidenav>
+	</mat-sidenav>
+	<mat-sidenav-content #sidenavContent>
+		<router-outlet (activate)="onRouteActivate($event)"></router-outlet>
+	</mat-sidenav-content>
+</mat-sidenav-container>
